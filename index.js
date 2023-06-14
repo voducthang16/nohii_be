@@ -126,7 +126,7 @@ app.post('/answer-question', async (req, res) => {
             createdAt: { $gte: startOfDay, $lt: endOfDay },
             title: 'incorrect-answer'
         }).sort({ createdAt: -1 });
-        if (logs.length >= 5) {
+        if (logs.length >= 10) {
             res.status(400).json({
                 message: "hom nay nohii hong duoc tra loi nua oi 😁"
             })
