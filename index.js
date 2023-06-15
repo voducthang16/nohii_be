@@ -12,6 +12,7 @@ app.options("*", cors());
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://nohii-quiz.netlify.app");
+    // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
@@ -126,7 +127,7 @@ app.post('/answer-question', async (req, res) => {
             createdAt: { $gte: startOfDay, $lt: endOfDay },
             title: 'incorrect-answer'
         }).sort({ createdAt: -1 });
-        if (logs.length >= 10) {
+        if (logs.length >= 20) {
             res.status(400).json({
                 message: "hom nay nohii hong duoc tra loi nua oi 😁"
             })
